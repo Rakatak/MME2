@@ -11,7 +11,7 @@
 
 	<body>
 		<div id="videocontainer">
-			<video class="video" id="amon" controls width=520 height=290>
+			<video class="video" id="amon" width=520 height=290>
                 	<source src="video/Amon_Tobin/final.mp4" type='video/mp4'>
 					<source src="video/Amon_Tobin/final.ogv" type='video/ogg; codecs="theora, vorbis"'/>
                     <source src="video/Amon_Tobin/final.webm" type='video/webm' >
@@ -19,8 +19,14 @@
                     <br><br>
 			</video>
            	 <div class="buttons">
-        		<button type="button" id=invertBut>  Invert Colors </button>
-            	<button type="button" id=blurBut>  Blur </button>        
+             	<button type="button" id=playBut>Play</button>
+             	<button type="button" id=stopBut>Stop</button>
+             	<button type="button" id=screenBut>FullScreen</button>
+        		<button type="button" id=invertBut>Invert Colors</button>
+            	<button type="button" id=blurBut>Blur</button> 
+                <a div class=time id=HH>00</a>:<a div class=time id=MM>00</a>:<a div class=time id=SS>00</a> <br>
+                <progress id="progressBar"  min='0' max='100' value='0'> 0% </progress>
+     
       		</div> 
             <div id="copyrights">
   				 <p class="text"><br>Video Copyright @RobinSteller <br>

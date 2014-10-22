@@ -56,3 +56,17 @@ body {
   -moz-opacity: 1;
   opacity: 1;
 }
+
+.time {
+	
+	color:#FFFBF0;
+	border:groove;
+}
+
+#progressBar { 
+	margin-top:5px;
+	color:#F05;
+	width: 520px;
+	border-bottom:thick;
+	border-bottom-color:#008000;
+}

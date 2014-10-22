@@ -1,0 +1,2 @@
+Bis zur Aufgabe 4 läuft in allen Browsern alles gut.
+Erst ab der Videoeffekt Einbindung und ProgressBar funktioneren diese Elemente nur noch in Chrome.
