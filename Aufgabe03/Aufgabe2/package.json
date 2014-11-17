@@ -1,0 +1,11 @@
+{
+  "name": "Aufgabe03",
+  "version": "1.0.0",
+  "description": "3rd task mme",
+  "main": "server.js",
+  "author": "Robin Steller",
+  "license": "Standard",
+  "dependencies": {
+    "express": "^4.10.2"
+  }
+}
