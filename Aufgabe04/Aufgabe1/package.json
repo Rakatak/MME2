@@ -1,0 +1,14 @@
+{
+  "name": "Aufgabe03",
+  "version": "1.0.0",
+  "description": "3rd task mme",
+  "main": "server.js",
+  "author": "Robin Steller",
+  "license" : "BSD-3-Clause“,
+  "dependencies": {
+    "express": "^4.10.2"
+  },
+  "engines" : { 
+    "node" : ">=0.10.3 <0.12" } 
+  }
+}
