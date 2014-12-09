@@ -33,7 +33,6 @@ app.get('/apiV1/streams/get/:id?', function (req, res) {
     }
 })
 
-
 app.post('/apiV1/streams/post/:id?', function (req, res) {
     console.log('POST Request at http://%s:%s/%s', server.host, server.port, "/apiV1/streams/post/" + req.params.id)
     if (req.params.id != undefined) {
@@ -47,6 +46,7 @@ app.post('/apiV1/streams/post/:id?', function (req, res) {
 
 app.delete('/apiV1/streams/delete/:id?', function (req, res) {
     console.log('DELETE Request at http://%s:%s/%s', server.host, server.port, "/apiV1/streams/delete/" + req.params.id)
+
     if (req.params.id < 0 || req.params.id > 2) {
         res.status(404);
         res.send(error);
