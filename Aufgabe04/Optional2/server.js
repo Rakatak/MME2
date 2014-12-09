@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/apiV1/streams/get/:id?', function (req, res) {
-    console.log('GET Request at http://%s:%s/%s', server.host, server.port, "/apiV1/streams/get/" + req.params.id)
+    console.log('GET Request at http://%s:%s/%s', host, port, "/apiV1/streams/get/" + req.params.id)
     if (req.params.id < 0 || req.params.id > 2) {
         res.status(404);
         res.send(error);
@@ -33,10 +33,9 @@ app.get('/apiV1/streams/get/:id?', function (req, res) {
     }
 })
 
-
 app.post('/apiV1/streams/post/:id?', function (req, res) {
-    console.log('POST Request at http://%s:%s/%s', server.host, server.port, "/apiV1/streams/post/" + req.params.id)
-    if (req.params.id != undefined) {
+    console.log('POST Request at http://%s:%s/%s', host, port, "/apiV1/streams/post/" + req.params.id)
+    if (req.params.id == undefined) {
         res.status(200)
         res.send({statusCode: 200, msg: "stream created"})
     } else {
@@ -46,7 +45,8 @@ app.post('/apiV1/streams/post/:id?', function (req, res) {
 })
 
 app.delete('/apiV1/streams/delete/:id?', function (req, res) {
-    console.log('DELETE Request at http://%s:%s/%s', server.host, server.port, "/apiV1/streams/delete/" + req.params.id)
+    console.log('DELETE Request at http://%s:%s/%s', host, port, "/apiV1/streams/delete/" + req.params.id)
+
     if (req.params.id < 0 || req.params.id > 2) {
         res.status(404);
         res.send(error);
@@ -62,7 +62,7 @@ app.delete('/apiV1/streams/delete/:id?', function (req, res) {
 })
 
 app.put('/apiV1/streams/put/:id?', function (req, res) {
-    console.log('PUT Request at http://%s:%s/%s', server.host, server.port, "/apiV1/streams/put/" + req.params.id)
+    console.log('PUT Request at http://%s:%s/%s', host, port, "/apiV1/streams/put/" + req.params.id)
     if (req.params.id < 0 || req.params.id > 2) {
         res.status(404);
         res.send(error);
@@ -76,10 +76,12 @@ app.put('/apiV1/streams/put/:id?', function (req, res) {
     }
 })
 
+var host;
+var port;
 var server = app.listen(3000, function () {
 
-    var host = server.address().address
-    var port = server.address().port
+    host = server.address().address
+    port = server.address().port
 
     console.log('Example app listening at http://%s:%s', host, port)
 
