@@ -1,12 +1,14 @@
 {
-  "name": "Aufgabe03",
+  "name": "Optional2",
   "version": "1.0.0",
-  "description": "3rd task mme",
+  "description": "4th task mme",
   "main": "server.js",
   "author": "Robin Steller",
   "license" : "BSD-3-Clause",
   "dependencies": {
-    "express": "^4.10.2"
+    "express": "^4.10.2",
+    "jasmine-node": "1.14.3",
+    "request": "2.49.0"
   },
   "engines" : { 
     "node" : ">=0.10.3 <0.12"
