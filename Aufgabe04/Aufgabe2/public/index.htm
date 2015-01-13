@@ -1,21 +1,38 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="author" content="Robin Steller">
-  <title>Aufgabe 1 MME2</title>
-  <link href="css/app.css" rel="stylesheet" type="text/css">
-  <script src="js/app.js" type="text/javascript"></script>
-  
+  	<meta charset="utf-8">
+  	<meta name="author" content="Robin Steller">
+  	<title>Aufgabe 4.2 MME2</title>
+	<script src="js/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<link href="css/app.css" rel="stylesheet" type="text/css">
+  	<script src="js/app.js" type="text/javascript"></script>
+
 </head>
 
 	<body>
 		<h1>Super awesome Database Shizzle</h1>
 
-		<form action="input_text.htm">
-			<p>Vorname:<br><input name="vorname" type="text" size="30" maxlength="30"></p>
-			<p>Zuname:<br><input name="zuname" type="text" size="30" maxlength="40"></p>
-		</form>
+		<p>ID:<br><input id="id" type="text" size="30" maxlength="40"></p>
+		<p>Name:<br><input id="name" type="text" size="30" maxlength="30"></p>
+		<p>Description (Optional):<br><input id="description" type="text" size="30" maxlength="40"></p>
+		<p>URL:<br><input id="url" type="text" size="30" maxlength="40"></p>
+		<p>State (Optional):<br><input id="state" type="text" size="30" maxlength="40"></p>
+
+		<input type="radio" name="GETS" id="byId" value="byId"> byId
+		<input type="radio" name="GETS" id="byName" value="byName"> byName
+		<input type="radio" name="GETS" id="byDescription" value="byDescription"> byDescription
+		<input type="radio" name="GETS" id="byURL" value="byURL"> byURL
+		<input type="radio" name="GETS" id="byState" value="byState"> byState
+
+		<br><br>
+
+		<input type="radio" name="REST" id="getBut" value="get"> GET
+		<input type="radio" name="REST" id="postBut" value="post"> POST
+		<input type="radio" name="REST" id="putBut" value="put"> PUT
+		<input type="radio" name="REST" id="delBut" value="delete"> DELETE
+		<br><br>
+		<button type="button" id=send>Send Request!</button>
 
 	</body>
 </html>

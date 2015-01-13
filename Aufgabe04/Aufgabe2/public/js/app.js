@@ -1,111 +1,127 @@
 /**
- * @author Robin Steller
+ * @author Rakatak alias Robin Steller
  */
- window.onload = function (){
+$(document).ready(function(){
+		console.log("Hello Database Time")
 
-	 var invertBool = false;
-	 var blurBool = false;
-	 var playBool = false;
-	 
-	 function consoleMsg() {
-		 console.log("Hello MME2, How you doin'?");
-	 }
- 	 consoleMsg()
+	var baseUrl = "http://0.0.0.0:3000/apiV1/streams"
 
-	
-  document.getElementById("invertBut").onclick=function(){	  
-	  if (invertBool == false) {
-		  	 document.getElementById("amon").className = "invert";
-			 invertBool = true;
-	 	 } else {
-		  	 document.getElementById("amon").className = "video";
-			 invertBool = false;
-		 }
-	};
-	
-	
-	 document.getElementById("blurBut").onclick=function(){	  
-	  if (invertBool == false) {
-		  	 document.getElementById("amon").className = "blur";
-			 invertBool = true;
-	 	 } else {
-		  	 document.getElementById("amon").className = "video";
-			 invertBool = false;
-		 }
-	};
-	
-	document.getElementById("playBut").onclick=function(){	
-		if (playBool == false) {
-			document.getElementById("amon").play();
-			document.getElementById("playBut").textContent = "Pause";
-			playBool = true;
-		} else if (playBool == true) {
-			document.getElementById("amon").pause();
-			document.getElementById("playBut").textContent = "Play";
-			playBool = false;
+	$("#byName").hide()
+	$("#byId").hide()
+	$("#byURL").hide()
+	$("#byState").hide()
+	$("#byDescription").hide()
+
+	 $("#getBut").click(function(){
+		 $("#name").hide()
+		 $("#id").hide()
+		 $("#url").hide()
+		 $("#state").hide()
+		 $("#description").hide()
+		 $("#byName").show()
+		 $("#byId").show()
+		 $("#byURL").show()
+		 $("#byState").show()
+		 $("#byDescription").show()
+	 })
+
+	 $("#postBut").click(function(){
+		 $("#name").show()
+		 $("#id").hide()
+		 $("#url").show()
+		 $("#state").show()
+		 $("#description").show()
+		 $("#byName").hide()
+		 $("#byId").hide()
+		 $("#byURL").hide()
+		 $("#byState").hide()
+		 $("#byDescription").hide()
+	 })
+
+	 $("#putBut").click(function(){
+		 $("#name").show()
+		 $("#id").show()
+		 $("#url").show()
+		 $("#state").show()
+		 $("#description").show()
+		 $("#byName").hide()
+		 $("#byId").hide()
+		 $("#byURL").hide()
+		 $("#byState").hide()
+		 $("#byDescription").hide()
+	 })
+
+	 $("#delBut").click(function(){
+		 $("#name").hide()
+		 $("#id").show()
+		 $("#url").hide()
+		 $("#state").hide()
+		 $("#description").hide()
+		 $("#byName").hide()
+		 $("#byId").hide()
+		 $("#byURL").hide()
+		 $("#byState").hide()
+		 $("#byDescription").hide()
+	 })
+
+	$("#byId").click(function(){
+		$("#name").hide()
+		$("#id").show()
+		$("#url").hide()
+		$("#state").hide()
+		$("#description").hide()
+	})
+
+	$("#byState").click(function(){
+		$("#name").hide()
+		$("#id").hide()
+		$("#url").hide()
+		$("#state").show()
+		$("#description").hide()
+	})
+
+	$("#byURL").click(function(){
+		$("#name").hide()
+		$("#id").hide()
+		$("#url").show()
+		$("#state").hide()
+		$("#description").hide()
+	})
+
+	$("#byName").click(function(){
+		$("#name").show()
+		$("#id").hide()
+		$("#url").hide()
+		$("#state").hide()
+		$("#description").hide()
+	})
+
+	$("#byDescription").click(function(){
+		$("#name").hide()
+		$("#id").hide()
+		$("#url").hide()
+		$("#state").hide()
+		$("#description").show()
+	})
+
+	$("#send").click(function(){
+		console.log("\nSend button pressed")
+		if ($('#getBut').is(':checked')) {
+			console.log("GET Request")
+
 		}
-	};
-	
-	document.getElementById("stopBut").onclick=function(){	  
-		document.getElementById("amon").pause();
-		document.getElementById("amon").currentTime = 0;
-		document.getElementById("playBut").textContent = "Play";
-		playBool = false;
-	};
-	
-	document.getElementById("amon").onclick=function(){	  
-		document.getElementById("amon").webkitRequestFullscreen();
-		
-	};
-	
-	
-	//setting the Time Clock
-	setInterval(function(){
-				var time    = document.getElementById("amon").currentTime;
-				var seconds = Math.floor(time % 60 );
-				var minutes = Math.floor(time / 60 );
-				var hours   = Math.floor(time / 3600);
-				
-				if (seconds < 10 ) {
-					document.getElementById("SS").textContent = "0" + seconds.toString();
-				} else {
-					document.getElementById("SS").textContent = seconds.toString();
-				}
-				
-				if (minutes < 60) {
-					document.getElementById("MM").textContent = "0" + minutes.toString();
-				} else {
-					document.getElementById("MM").textContent = minutes.toString();
-				}
-				
-				if (hours < 60) {
-					document.getElementById("HH").textContent = "0" + hours.toString();
-				} else {
-					document.getElementById("HH").textContent = hours.toString();
-				}
-				updateProgress();
-	});
-	
-	function updateProgress() {
-		var bar = document.getElementById("progressBar");
-		var percentage = Math.floor((100 / document.getElementById("amon").duration) * document.getElementById("amon").currentTime);
-		
-		bar.value = percentage;
-		bar.innerHTML = percentage;
-		
-	}
-	
-	document.getElementById("progressBar").addEventListener('click', function(e) {
-		var x = e.clientX - 407;
-		var percentage = x / 520;
-		var result = document.getElementById("amon").duration * percentage;
-		
-		document.getElementById("amon").currentTime = result;
-		
-		
-	}, false);
+		if ($('#postBut').is(':checked')) {
+			console.log("POST Request")
 
-	
-	
-	
- }
+		}
+		if ($('#putBut').is(':checked')) {
+			console.log("PUT Request")
+
+		}
+		if ($('#delBut').is(':checked')) {
+			console.log("DELETE Request")
+
+		}
+
+	})
+})
